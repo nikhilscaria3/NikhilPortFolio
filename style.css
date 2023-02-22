@@ -1,0 +1,253 @@
+html,body{
+    max-width:100%;
+    
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+.navbar {
+    background-color: #fff;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: rgb(13, 1, 1);
+    font-weight: 400;
+    transition:all .4s ease;
+
+}
+
+.nav-link:hover {
+    background-color: black;
+    color: aliceblue;
+    transform: scale(1,1);
+}
+
+.navbar-brand {
+    /* font-size: 1.5rem; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+}
+.image2{
+width: 2rem;
+height:2rem;
+}
+.main h5 {
+
+    line-height: 1;
+    /* border-bottom: 3px solid skyblue; */
+    width: 100%;
+
+}
+
+.main {
+    width: 100%;
+    background-image: linear-gradient(rgb(0, 38, 255), rgb(228, 230, 235));
+}
+
+
+.image1 {
+    width: 100%;
+    height:100%
+    /* /* margin-left: 3rem;
+    margin-top: 5rem;
+    width: 70%;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;--> */
+}
+
+.main h3 {
+    font-size: 4.4rem;
+    font-weight: 400
+}
+
+.btn1 {
+    background-color: rgb(12, 1, 224);
+    padding: 1rem;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+}
+
+.btn1:hover {
+    background-color: black;
+    color: aliceblue;
+}
+
+.btn2 {
+    background-color: transparent;
+    color: rgb(12, 1, 224);
+    border-color: blue;
+    padding: 13px;
+    border-radius: 4px;
+}
+
+p {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 15px;
+}
+
+#css {
+    margin-top: 1rem;
+}
+
+#boots {
+    margin-top: 1rem;
+}
+
+#video {
+    margin-left: 7rem;
+    width: 15rem;
+    height: 5rem;
+
+}
+
+#button1 {
+    background-color: rgb(12, 1, 224);
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+
+}
+
+#button1:hover {
+    background-color: black;
+    color: aliceblue;
+}
+
+#button2 {
+    background-color: rgb(12, 1, 224);
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+    text-decoration: none;
+}
+
+#button2:hover {
+    background-color: black;
+    color: aliceblue;
+}
+
+.progress {
+    animation-name: example;
+    animation-duration: 5s;
+    color: aqua;
+}
+
+@keyframes example {
+    0% {
+        width: 0
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+box-icon {
+   
+  margin: auto;
+   display: flex;
+   flex: row;
+    /* margin-left: 12rem;
+    margin-top: 1rem; */
+}
+
+#webdesign {
+    width: 100%;
+    height: 20rem;
+}
+
+#services {
+    font-style: bold;
+    font-weight: 700;
+
+}
+#letstalk {
+    font-style: bold;
+    font-weight: 700;
+
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
+
+h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2:hover {
+    color: rgb(22, 72, 88);
+
+}
+
+
+.btn6 {
+    color: rgb(220, 212, 212);
+    box-sizing: border-box;
+    width: 7rem;
+    height: 3rem;
+    margin-top: 8rem;
+    background-color: rgb(12, 1, 224);
+    border: none;
+   border-radius: 6px;
+}
+.btn6:hover{
+    background-color: black;
+    color: aliceblue;
+}
+
+.text-white {
+    text-align: center;
+}
+
+span {
+    position: relative;
+    color: rgb(7, 36, 130)
+}
+
+span i {
+    color: rgb(15, 81, 196);
+}
+
+.form-control {
+    width: 100%;
+}
+
+.whatsapp {
+    
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(13, 203, 140);
+}
+.mail{
+    position: fixed;
+    right: 18px;
+    top: 55%;
+    transform: translateY(-50%);
+    color: rgb(185, 73, 25);
+}
+.phone{
+    position: fixed;
+    right: 18px;
+    top: 60%;
+    transform: translateY(-50%);
+    color: rgb(26, 87, 220);
+}
