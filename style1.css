@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+   background-image:linear-gradient(rgb(101, 97, 97),rgb(39, 41, 41));
+   height: 40rem;
+}
+#webdesign{
+    height: 15rem;
+}
+
