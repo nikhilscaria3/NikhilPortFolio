@@ -1,0 +1,49 @@
+body{
+    background-image:radial-gradient(rgb(15, 17, 2),rgb(80, 85, 85)) ;
+}
+
+img
+{
+    width: 18rem;
+}
+.row{
+    background-image:radial-gradient(rgb(15, 17, 2),rgb(80, 85, 85)) ;
+
+}
+button{
+    color:red;
+    padding:1rem;
+    margin-left:2rem;
+border-radius:1rem;
+background-color: aqua;
+
+}
+p{
+    cursor: pointer;
+    text-align: center;
+    justify-content: space-between;
+}
+p:hover{ 
+    text-decoration:underline;
+}
+h1{
+    text-align: center;
+}
+span{
+    position: absolute;
+    color:aqua
+}
+ span i{
+    color:seagreen;
+}
+.text-white:hover{
+    transform: scale(1.1);
+}
+.head8{
+ font-size: 50px;
+
+}
+.head9{
+    background-image:radial-gradient(rgb(15, 17, 2),rgb(80, 85, 85)) ;
+
+}
