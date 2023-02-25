@@ -1,0 +1,491 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+*{
+    box-sizing: border-box;
+  }
+.head{
+  width:8rem;
+}
+.logo{
+    margin-left: 38rem;
+    width: 5rem;
+    position: absolute;
+    background-position: center;
+    flex: 50%;
+    margin-top: -3rem;
+
+}
+.main1{
+  width:3rem;
+}
+.head1{
+  margin-left:3rem;
+}
+.img1{
+  width:100%;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.text {
+  font: inherit;
+  color: white;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 2.5rem;
+    margin-bottom: 27rem;
+    margin-left: 4rem;
+ font-family: AudiType,sans-serif;
+  font-stretch: inherit;
+   
+}
+.text1{
+  font:inherit;
+      font-family: var(--typography-order1-fontFamily-af0670f1);
+ font-family: AudiType,sans-serif;
+      color: white;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 1.3rem;
+    margin-bottom: 25rem;
+    margin-left: 4rem;
+}
+.button1{
+  background-color:white;
+       color: black;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 1.3rem;
+    margin-bottom: 19.5rem;
+    margin-left: 4rem;
+    padding-left: 23px;
+    padding-left: 28px;
+    padding-top: 18px;
+    padding-bottom: 15px;
+    padding-right: 14px;
+
+}
+.img3{
+     margin-top: 11rem;
+    height: 36rem;
+      margin-left: 4rem;
+}
+.main2{
+      flex: 50%;
+    position: absolute;
+    display: flex;
+}
+.text3{
+   font-family: AudiType,sans-serif;
+  text-align: center;
+    margin-top: 31rem;
+    margin-left: 3rem;
+    font-family: sans-serif;
+    font-size: 2.6rem;
+}
+.button2{
+  background-color:black;
+       color: white;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 1.3rem;
+    margin-bottom: 7rem;
+    margin-left: 43rem;
+    padding-left: 14px;
+    padding-top: 21px;
+    padding-bottom: 15px;
+    padding-right: 14px;
+}
+.img4{
+  width:56rem;
+}
+.img5{
+      width: 100%;
+}
+.text5{
+   font-family: AudiType,sans-serif;
+  color: white;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+   
+  
+}
+.text6{
+   font-family: AudiType,sans-serif;
+      color: white;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    
+}
+.container1 {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-left {
+   color: black;
+    margin-left: 4rem;
+    background-color: white;
+    font-size: 2rem;
+    height: 21rem;
+    position: absolute;
+    bottom: 32rem;
+    left: 14px;
+    width: 45rem;
+}
+h1{
+  
+    margin-top: 3rem;
+  font-size:2rem;
+  text-align:justify;
+  margin-left:2rem;
+}
+.head5{
+   margin-left:2rem;
+      font-size: 1.3rem;
+    text-align: justify;
+}
+.pagebtn1{
+  padding: 1rem;
+    position: absolute;
+    margin-left: -18rem;
+    margin-top: 1rem;
+  background-color:black;
+  color:white;
+  height: 3rem;
+   width: 7rem;
+}
+.pagebtn2{
+      height: 3rem;
+    width: 9rem;
+  padding: 1rem;
+    position: absolute;
+    margin-left: -9rem;
+    margin-top: 1rem;
+}
+.img6{
+  margin-left: 3rem;
+    margin-top: 10rem;
+    width: 35rem;
+    height: 36rem;
+}
+.next{
+  display:flex;
+}
+.pagebtn3{
+        height: 3rem;
+    margin-top: 38rem;
+    margin-left: -22rem;
+    width: 10rem;
+  background-color:black;
+  color:white;
+}
+.pagebtn4{
+      height: 3rem;
+    margin-top: 38rem;
+    margin-left: 3rem;
+    width: 10rem;
+}
+.text3{
+   font-family: AudiType,sans-serif;
+    text-align: center;
+    margin-top: 33rem;
+    margin-left: 4rem;
+    font-family: sans-serif;
+    font-size: 2.6rem;
+}
+.img7{
+  margin-left: 2rem;
+  width: 283%;
+
+   
+}
+.text4{
+
+  font-family: AudiType,sans-serif;
+  color: white;
+  text-align: center;
+  margin-left: -2rem;
+  margin-top: 1rem;
+  padding: 7rem;
+  font-size: 2rem;
+
+}
+.next1{
+    display: flex;
+    background-color: black;
+    width: 24rem;
+    margin-top: 4rem;
+    margin-left: -1rem;
+    height: 38rem;
+}
+.pagebtn5{
+      
+         height: 3rem;
+    margin-top: 15rem;
+    margin-left: 4rem;
+    width: 10rem;
+  background-color:black;
+  color:white;
+}
+.text5 {
+   font-family: AudiType,sans-serif;
+    margin-left: 0px;
+    margin-top: 9rem;
+    background-color: black;
+    color: white;
+    width: 57rem;
+    text-align: center;
+  }
+.bottomhead {
+    background-color: black;
+    width: 53rem;
+    height: 40rem;
+    margin-top: 9rem;
+    margin-left: 0rem;
+    color:white;
+}
+.next2{
+  display: flex;
+  background-color: black;
+  width: 56%;
+  margin-top: 4rem;
+  margin-left: -1rem;
+  height: 38rem;
+}
+.img8 {
+  width: 34rem;
+  position: absolute;
+  margin-left: 58%;
+
+  }
+.bottomhead5{
+  color: white;
+  text-align: center;
+  margin-left: 0rem;
+  margin-top: 14rem;
+  padding: 5rem;
+  font-size: 2rem;
+}
+.pagebtn6{
+        height: 3rem;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    width: 10rem;
+  background-color:black;
+  color:white;
+}
+.pagebtn7{
+   background-color:black;
+  color:white;
+      height: 3rem;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    width: 10rem;
+}
+.next4{
+  display:flex;
+}
+.img9{
+      width: 26rem;
+    height: 16rem;
+  margin-left:1rem;
+}
+.img10{
+  margin-left: 5rem;
+  width: 26rem;
+  height: 16rem;
+
+}
+.img11{
+  margin-left: 6rem;
+  width: 26rem;
+  height: 16rem;
+}
+.text9{
+   font-family: AudiType,sans-serif;
+        text-align: center;
+    margin-top: -4rem;
+    margin-right: 16rem;
+
+}
+.text10{
+  font-family: AudiType,sans-serif;
+  text-align: end;
+  margin-right: 20rem;
+  margin-top: -5rem;
+
+}
+.text8{
+   font-family: AudiType,sans-serif;
+      margin-top: 1rem;
+    margin-right: 16rem;
+}
+.btn1{
+      margin-top: -24px;
+}
+.btn2{
+  text-align:center;
+      margin-top: -24px;
+  margin-left:-17rem;
+}
+.btn3{
+  margin-left: 64rem;
+  margin-top: -24px;
+}
+.next7{
+  display: flex;
+}
+.img12{
+      width: 26rem;
+    height: 16rem;
+  margin-left:1rem;
+}
+.img13{
+  margin-left: 6rem;
+  width: 26rem;
+  height: 16rem;
+}
+.img14{
+  margin-left: 7rem;
+  width: 26rem;
+  height: 16rem;
+}
+.text11{
+       font-family: AudiType,sans-serif;
+    margin-top:12px;
+  
+}
+.text12{
+  font-family: AudiType,sans-serif;
+  margin-left: 34rem;
+  margin-top: -3rem;
+
+
+}
+.text13{
+  font-family: AudiType,sans-serif;
+  margin-top: -58px;
+  margin-left: 66rem;
+}
+.btn4{
+   
+  margin-top: -31px;
+  margin-left: 5px;
+
+}
+.btn5{
+
+
+  margin-top: -31px;
+  margin-left: 34rem;
+
+}
+
+.btn6{
+  margin-left: 66rem;
+  margin-top: -38px;
+}
+.fotter{
+    background-color: black;
+    height: 101%;
+    margin-top: -1rem;
+}
+.fotter1{
+       height: 21%;
+    margin-left: 12rem;
+    margin-top: 9rem;
+    width: 59rem;
+
+
+ height: 14%;
+    background-color: black;
+    font-family: arial, sans-serif;
+    margin-left: 12rem;
+    margin-top: 9rem;
+    padding-top: 5rem;
+    width: 59rem;
+}
+.text14{
+   font-family: AudiType,sans-serif;
+color:white;
+ 
+  text-align: left;
+  padding: 3px;
+}
+td{
+   
+  text-align: left;
+  padding: 8px;
+}
+.fotter2{
+     height: 21%;
+    margin-left: 12rem;
+    margin-top: 9rem;
+    width: 59rem;
+}
+.fotter3{
+  background-color:black;
+      height: 75%;
+    margin-top: -2rem;
+    color: white;
+}
+.foothead{
+    font-size: 14px;
+    margin-left: 26px;
+    padding-top: 29px;
+}
+.foothead1{
+  padding:2rem;
+      font-size: 14px;
+    margin-top: 4rem;
+      margin-left: 2rem;
+}
+.foothead2{
+      width: 74rem;
+    margin-left: 4rem;
+    font-size: 14px;
+    margin-top: 1rem;
+}
+.foothead3{
+      width: 74rem;
+    margin-left: 4rem;
+    font-size: 14px;
+    margin-top: 2rem;
+}
+
+.small{
+  width:1rem;
+ margin-left:65rem;
+}
+.small1{
+  width:1rem;
+  
+  margin-left:2rem;
+}
+.small2{
+  width:1rem;
+  
+  margin-left:2rem;
+}
+.small3{
+  width:1rem;
+  
+  margin-left:2rem;
+}
+.th1{
+  font-size:23px;
+}
