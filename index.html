@@ -1,1061 +1,648 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Scaria | Full Stack Developer</title>
-    <meta name="description" content="Nikhil Scaria - Full Stack Developer specializing in PERN and MERN stack development, SaaS products, and creative web applications.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-primary: #0f0f0f;
-            --bg-secondary: #1a1a1a;
-            --accent-primary: #00ffe0;
-            --accent-secondary: #7b61ff;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --card-bg: rgba(30, 30, 30, 0.7);
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --font-primary: 'Poppins', sans-serif;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nikhil Scaria | Software Developer</title>
+    <meta
+      name="description"
+      content="Nikhil Scaria - Software Developer specializing in PERN and MERN stack, Multi-tenant SaaS architecture"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--accent-primary);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s ease;
-        }
-
-        .cursor-follower {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-primary);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(15, 15, 15, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 0 5%;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards 0.5s;
-        }
-
-        .hero h2 {
-            font-size: 1.8rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards 0.7s;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            color: var(--text-secondary);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards 0.9s;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            color: var(--bg-primary);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards 1.1s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 224, 0.3);
-        }
-
-        /* Background Animation */
-        .background-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 15s infinite linear;
-        }
-
-        .code-line {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.1);
-            font-family: monospace;
-            font-size: 1rem;
-            white-space: nowrap;
-            animation: codeFlow 20s infinite linear;
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 5%;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-item {
-            background: var(--card-bg);
-            border-radius: 10px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--glass-border);
-        }
-
-        .skill-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 255, 224, 0.2);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent-primary);
-        }
-
-        .skill-name {
-            font-weight: 500;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.5s ease;
-            border: 1px solid var(--glass-border);
-            height: 350px;
-            perspective: 1000px;
-        }
-
-        .project-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .project-card:hover .project-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .project-card-front, .project-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .project-card-front {
-            background: var(--card-bg);
-        }
-
-        .project-card-back {
-            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
-            color: var(--bg-primary);
-            transform: rotateY(180deg);
-        }
-
-        .project-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--accent-primary);
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(0, 255, 224, 0.1);
-            color: var(--accent-primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-content {
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 10px;
-            border: 1px solid var(--glass-border);
-            position: relative;
-        }
-
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background: var(--accent-primary);
-            top: 50%;
-            transform: translateY(-50%) rotate(45deg);
-            border-radius: 3px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::after {
-            left: -10px;
-            right: auto;
-        }
-
-        .timeline-date {
-            font-weight: 600;
-            color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-company {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .contact-form {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-family: var(--font-primary);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            color: var(--bg-primary);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 255, 224, 0.3);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: transform 0.3s ease, background 0.3s ease;
-            border: 1px solid var(--glass-border);
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: var(--bg-primary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            padding: 2rem 5%;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                transform: translateY(-20px) translateX(10px);
-            }
-            100% {
-                transform: translateY(0) translateX(0);
-            }
-        }
-
-        @keyframes codeFlow {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100vw);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content, .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-content::after {
-                left: -10px;
-                right: auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .skills-container {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-    </style>
-</head>
-<body>
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
+    <!-- Animated Background -->
+    <div class="bg-animation">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav>
-        <div class="logo">Nikhil Scaria</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo">
+          <span class="logo-text">NS</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        <button class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+      </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="background-animation" id="particles-container"></div>
-        <div class="hero-content">
-            <h1>Nikhil Scaria</h1>
-            <h2>Full-Stack Developer</h2>
-            <p>I build smart, scalable applications with the PERN and MERN stacks, specializing in SaaS products and creative web solutions.</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Available for work</span>
         </div>
+        <h1 class="hero-title">
+          <span class="greeting">Hello, I'm</span>
+          <span class="name">Nikhil Scaria</span>
+        </h1>
+        <div class="typing-container">
+          <span class="typing-text">I'm a </span>
+          <span class="typed-text"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+        <p class="hero-description">
+          Software Developer with 3+ years of experience building scalable web
+          applications using MERN and PERN stacks. Passionate about solving
+          real-world problems through technology.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <span>View My Work</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>Get In Touch</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Years Exp.</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Tech Stack</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="code-window">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="window-title">main.js</span>
+          </div>
+          <pre
+            class="window-content"
+          ><code><span class="code-keyword">const</span> <span class="code-variable">developer</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"Nikhil Scaria"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"Full Stack Developer"</span>,
+  <span class="code-property">stack</span>: [<span class="code-string">"PERN"</span>, <span class="code-string">"MERN"</span>],
+  <span class="code-property">skills</span>: [
+    <span class="code-string">"React"</span>,
+    <span class="code-string">"Node.js"</span>,
+    <span class="code-string">"PostgreSQL"</span>
+  ],
+  <span class="code-property">contact</span>: <span class="code-function">()</span> => {
+    <span class="code-keyword">return</span> <span class="code-string">"nikhilscaria3@gmail.com"</span>;
+  }
+};</code></pre>
+        </div>
+        <div class="floating-shapes">
+          <div class="shape shape-1"><i class="fab fa-react"></i></div>
+          <div class="shape shape-2"><i class="fab fa-node"></i></div>
+          <div class="shape shape-3"><i class="fas fa-database"></i></div>
+          <div class="shape shape-4"><i class="fab fa-aws"></i></div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
+    <section id="about" class="section">
+      <div class="section-header">
+        <span class="section-label">01. About Me</span>
+        <h2 class="section-title">Building Scalable Solutions</h2>
+      </div>
+      <div class="about-grid">
         <div class="about-content">
-            <div class="about-text">
-                <p>I'm a software developer building smart, scalable apps with the PERN stack. With a passion for creating efficient and user-friendly applications, I specialize in both frontend and backend development.</p>
-                <p>My expertise includes JavaScript, React, Node.js, Express, PostgreSQL, and MongoDB. I enjoy solving complex problems and turning ideas into reality through clean, maintainable code.</p>
-                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+          <p class="about-text">
+            I'm a software developer at <strong>TIGRID Technologies</strong>,
+            where I design and develop scalable REST APIs using Node.js and
+            Express. With over 3 years of hands-on experience, I've architected
+            multi-tenant SaaS infrastructures with dedicated database isolation
+            per client.
+          </p>
+          <p class="about-text">
+            My expertise spans across the entire development lifecycle - from
+            conceptualization to deployment. I've implemented secure
+            authentication systems using JWT and Role-Based Access Control
+            (RBAC), built real-time features with Socket.IO, and managed
+            deployments on AWS EC2 with Nginx reverse proxy.
+          </p>
+          <p class="about-text">
+            I'm currently pursuing my
+            <strong>Bachelor of Computer Application</strong> with
+            specialization in Cloud and Security from Amity Online, and I
+            completed my MERN Stack Development training at Brototype.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-check"></i>
+              <span>Multi-tenant SaaS Architecture</span>
             </div>
-            <div class="skills-container">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-js-square"></i></div>
-                    <div class="skill-name">JavaScript</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-react"></i></div>
-                    <div class="skill-name">React</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
-                    <div class="skill-name">Node.js</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <div class="skill-name">PostgreSQL</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-leaf"></i></div>
-                    <div class="skill-name">MongoDB</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
-                    <div class="skill-name">AWS</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
-                    <div class="skill-name">Docker</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                    <div class="skill-name">Git</div>
-                </div>
+            <div class="highlight-item">
+              <i class="fas fa-check"></i>
+              <span>Real-time Systems</span>
             </div>
+            <div class="highlight-item">
+              <i class="fas fa-check"></i>
+              <span>AWS Cloud Deployment</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check"></i>
+              <span>Security & Authentication</span>
+            </div>
+          </div>
         </div>
+        <div class="about-image">
+          <div class="image-frame">
+            <div class="image-inner">
+              <img
+                src="main.jpg"
+                alt="Nikhil Scaria"
+                onerror="this.style.display = 'none'"
+              />
+              <div class="image-overlay"></div>
+            </div>
+            <div class="frame-corner tl"></div>
+            <div class="frame-corner tr"></div>
+            <div class="frame-corner bl"></div>
+            <div class="frame-corner br"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <span class="section-label">02. Technical Skills</span>
+        <h2 class="section-title">My Tech Stack</h2>
+      </div>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3 class="category-title">Frontend</h3>
+          <div class="skill-grid">
+            <div class="skill-card" data-skill="React">
+              <div class="skill-icon"><i class="fab fa-react"></i></div>
+              <span class="skill-name">React</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="Redux">
+              <div class="skill-icon"><i class="fab fa-redux"></i></div>
+              <span class="skill-name">Redux</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="JavaScript">
+              <div class="skill-icon"><i class="fab fa-js"></i></div>
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="HTML/CSS">
+              <div class="skill-icon"><i class="fab fa-html5"></i></div>
+              <span class="skill-name">HTML/CSS</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="Tailwind">
+              <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+              <span class="skill-name">Tailwind</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="category-title">Backend</h3>
+          <div class="skill-grid">
+            <div class="skill-card" data-skill="Node.js">
+              <div class="skill-icon"><i class="fab fa-node"></i></div>
+              <span class="skill-name">Node.js</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="Express">
+              <div class="skill-icon"><i class="fas fa-server"></i></div>
+              <span class="skill-name">Express</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="PostgreSQL">
+              <div class="skill-icon"><i class="fas fa-database"></i></div>
+              <span class="skill-name">PostgreSQL</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="MongoDB">
+              <div class="skill-icon"><i class="fas fa-leaf"></i></div>
+              <span class="skill-name">MongoDB</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="category-title">Tools & Cloud</h3>
+          <div class="skill-grid">
+            <div class="skill-card" data-skill="AWS">
+              <div class="skill-icon"><i class="fab fa-aws"></i></div>
+              <span class="skill-name">AWS</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="Docker">
+              <div class="skill-icon"><i class="fab fa-docker"></i></div>
+              <span class="skill-name">Docker</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 75%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="Git">
+              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+              <span class="skill-name">Git</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-card" data-skill="Socket.IO">
+              <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+              <span class="skill-name">Socket.IO</span>
+              <div class="skill-level">
+                <div class="skill-progress" style="--progress: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-card-inner">
-                    <div class="project-card-front">
-                        <div class="project-icon"><i class="fas fa-fingerprint"></i></div>
-                        <h3 class="project-title">EIN Identity Platform</h3>
-                        <p class="project-description">Secure identity verification platform with advanced authentication mechanisms.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                    </div>
-                    <div class="project-card-back">
-                        <h3>EIN Identity Platform</h3>
-                        <p>A comprehensive identity verification solution with multi-factor authentication, biometric verification, and secure data encryption.</p>
-                        <p>Built with React, Node.js, Express, and PostgreSQL with JWT authentication.</p>
-                    </div>
-                </div>
+    <section id="projects" class="section">
+      <div class="section-header">
+        <span class="section-label">03. Featured Projects</span>
+        <h2 class="section-title">What I've Built</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-icon-large">
+              <i class="fas fa-calendar-check"></i>
             </div>
-            <div class="project-card">
-                <div class="project-card-inner">
-                    <div class="project-card-front">
-                        <div class="project-icon"><i class="fas fa-users"></i></div>
-                        <h3 class="project-title">Floem HRMS</h3>
-                        <p class="project-description">Human Resource Management System for enterprise-level organizations.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Express</span>
-                        </div>
-                    </div>
-                    <div class="project-card-back">
-                        <h3>Floem HRMS</h3>
-                        <p>An all-in-one HR management solution with employee onboarding, payroll processing, performance tracking, and analytics dashboard.</p>
-                        <p>Built with MERN stack and integrated with third-party APIs for seamless functionality.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">PERN Stack</span>
+              <span class="project-tag">SaaS</span>
             </div>
-            <div class="project-card">
-                <div class="project-card-inner">
-                    <div class="project-card-front">
-                        <div class="project-icon"><i class="fas fa-hard-hat"></i></div>
-                        <h3 class="project-title">Lyntell Construction SaaS</h3>
-                        <p class="project-description">SaaS platform for construction project management and collaboration.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">AWS</span>
-                        </div>
-                    </div>
-                    <div class="project-card-back">
-                        <h3>Lyntell Construction SaaS</h3>
-                        <p>A cloud-based platform for construction companies to manage projects, track progress, allocate resources, and collaborate with teams.</p>
-                        <p>Built with PERN stack and deployed on AWS with auto-scaling capabilities.</p>
-                    </div>
-                </div>
+            <h3 class="project-title">Slotcore (Slotify)</h3>
+            <p class="project-description">
+              A white-labeled, real-time booking and staff management system
+              with multi-tenant architecture. Features include Razorpay payment
+              integration, organization subdomains, and optimized REST APIs for
+              mobile.
+            </p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>Razorpay</span>
             </div>
-            <div class="project-card">
-                <div class="project-card-inner">
-                    <div class="project-card-front">
-                        <div class="project-icon"><i class="fas fa-dumbbell"></i></div>
-                        <h3 class="project-title">Workout Management App</h3>
-                        <p class="project-description">Fitness tracking application with personalized workout plans.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Redux</span>
-                        </div>
-                    </div>
-                    <div class="project-card-back">
-                        <h3>Workout Management App</h3>
-                        <p>A mobile application for creating, tracking, and analyzing workout routines with progress visualization and social features.</p>
-                        <p>Built with React Native, Firebase for backend, and Redux for state management.</p>
-                    </div>
-                </div>
+            <div class="project-links">
+              <a href="#" class="project-link"
+                ><i class="fab fa-github"></i> Code</a
+              >
+              <a href="#" class="project-link"
+                ><i class="fas fa-external-link-alt"></i> Live</a
+              >
             </div>
+          </div>
         </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-icon-large">
+              <i class="fas fa-hard-hat"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">MERN Stack</span>
+              <span class="project-tag">SaaS</span>
+            </div>
+            <h3 class="project-title">Lyntell - Construction SaaS</h3>
+            <p class="project-description">
+              A comprehensive construction management platform for project and
+              financial tracking. Includes modules for project management,
+              expense tracking, and performance analysis (CPI/SPI calculations).
+            </p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>AWS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link"
+                ><i class="fab fa-github"></i> Code</a
+              >
+              <a href="#" class="project-link"
+                ><i class="fas fa-external-link-alt"></i> Live</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-icon-large"><i class="fas fa-users"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">MERN Stack</span>
+              <span class="project-tag">HRMS</span>
+            </div>
+            <h3 class="project-title">Floem - HRMS Platform</h3>
+            <p class="project-description">
+              An internal HRMS solution for employee workflow and data
+              management. Features include attendance management, employee
+              workflows, and data analytics with a high-performance React UI.
+            </p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+              <span>Socket.IO</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link"
+                ><i class="fab fa-github"></i> Code</a
+              >
+              <a href="#" class="project-link"
+                ><i class="fas fa-external-link-alt"></i> Live</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-icon-large">
+              <i class="fas fa-fingerprint"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">Full Stack</span>
+              <span class="project-tag">Security</span>
+            </div>
+            <h3 class="project-title">EIN Identity Platform</h3>
+            <p class="project-description">
+              Secure identity verification platform with advanced authentication
+              mechanisms. Multi-factor authentication, biometric verification,
+              and secure data encryption.
+            </p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>JWT</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link"
+                ><i class="fab fa-github"></i> Code</a
+              >
+              <a href="#" class="project-link"
+                ><i class="fas fa-external-link-alt"></i> Live</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2025 - Present</div>
-                    <h3 class="timeline-title">Senior Full Stack Developer</h3>
-                    <div class="timeline-company">Tech Innovations Inc.</div>
-                    <p>Leading development of SaaS products using PERN stack. Mentoring junior developers and implementing best practices.</p>
-                </div>
+    <section id="experience" class="section">
+      <div class="section-header">
+        <span class="section-label">04. Work Experience</span>
+        <h2 class="section-title">Where I've Worked</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-date">Mar 2024 - Present</span>
+              <span class="timeline-location">Kerala, India</span>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2024 - 2025</div>
-                    <h3 class="timeline-title">Full Stack Developer</h3>
-                    <div class="timeline-company">Digital Solutions Ltd.</div>
-                    <p>Developed and maintained multiple web applications using MERN stack. Collaborated with cross-functional teams to deliver high-quality products.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2023 - 2024</div>
-                    <h3 class="timeline-title">Frontend Developer</h3>
-                    <div class="timeline-company">Web Creations Agency</div>
-                    <p>Created responsive and interactive user interfaces using React and modern CSS techniques. Worked closely with designers to implement pixel-perfect designs.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2023 - 2024</div>
-                    <h3 class="timeline-title">Junior Web Developer</h3>
-                    <div class="timeline-company">Startup Ventures</div>
-                    <p>Started my career building websites and web applications. Gained foundational knowledge in HTML, CSS, JavaScript, and backend technologies.</p>
-                </div>
-            </div>
+            <h3 class="timeline-title">Senior Software Developer</h3>
+            <h4 class="timeline-company">TIGRID Technologies</h4>
+            <ul class="timeline-description">
+              <li>
+                Designed and developed scalable REST APIs using Node.js and
+                Express
+              </li>
+              <li>
+                Architected multi-tenant SaaS infrastructure with database
+                isolation per client
+              </li>
+              <li>
+                Implemented JWT authentication with Role-Based Access Control
+                (RBAC)
+              </li>
+              <li>
+                Developed real-time features using Socket.IO for live updates
+              </li>
+              <li>Managed AWS EC2 deployment with Nginx reverse proxy</li>
+            </ul>
+          </div>
         </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-date">Jan 2023 - Jan 2024</span>
+              <span class="timeline-location">Kerala, India</span>
+            </div>
+            <h3 class="timeline-title">MERN Stack Developer</h3>
+            <h4 class="timeline-company">Brototype</h4>
+            <ul class="timeline-description">
+              <li>Built production-ready web applications using MERN stack</li>
+              <li>Learned and implemented best practices for code quality</li>
+              <li>Worked on real-world projects for clients</li>
+              <li>Collaborated with team members on code reviews</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email</h3>
-                        <p>nikhilscaria3@gmail.com</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Location</h3>
-                        <p>Kerala, India</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div>
-                        <h3>Phone</h3>
-                        <p>+91 7561849356</p>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-dev"></i></a>
-                </div>
+    <section id="contact" class="section">
+      <div class="section-header">
+        <span class="section-label">05. Get In Touch</span>
+        <h2 class="section-title">Let's Connect</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
             </div>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p>nikhilscaria3@gmail.com</p>
             </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Kerala, India</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p>+91 7561849356</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a
+              href="https://linkedin.com/in"
+              class="social-link"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://github.com" class="social-link" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://twitter.com" class="social-link" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://instagram.com" class="social-link" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
         </div>
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" name="name" required />
+              <label for="name">Your Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" required />
+              <label for="email">Your Email</label>
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" name="subject" required />
+              <label for="subject">Subject</label>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" required></textarea>
+              <label for="message">Your Message</label>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Nikhil Scaria. All rights reserved.</p>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-text">Nikhil Scaria</span>
+        </div>
+        <p class="footer-text">
+          Building scalable solutions with modern technologies
+        </p>
+        <div class="footer-social">
+          <a href="https://linkedin.com/in"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="https://github.com"><i class="fab fa-github"></i></a>
+          <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="copyright">&copy; 2024 Nikhil Scaria. All rights reserved.</p>
+      </div>
+      <div class="footer-wave">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path
+            fill="var(--bg-secondary)"
+            fill-opacity="1"
+            d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
     </footer>
 
-    <script>
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-
-        // Background Animation
-        const particlesContainer = document.getElementById('particles-container');
-
-        // Create particles
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Random properties
-            const size = Math.random() * 5 + 2;
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            const delay = Math.random() * 15;
-            
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${posX}%`;
-            particle.style.top = `${posY}%`;
-            particle.style.animationDelay = `${delay}s`;
-            
-            particlesContainer.appendChild(particle);
-        }
-
-        // Create code lines
-        for (let i = 0; i < 10; i++) {
-            const codeLine = document.createElement('div');
-            codeLine.classList.add('code-line');
-            
-            // Random code snippets
-            const codeSnippets = [
-                'const developer = new Developer();',
-                'function createAmazingApps() { ... }',
-                'npm install innovation',
-                'git commit -m "Awesome feature"',
-                'console.log("Hello World!");',
-                'const portfolio = { stunning: true };',
-                'if (codeQuality === "excellent") { deploy(); }',
-                '// Nikhil Scaria - Full Stack Developer',
-                'export default creativity;',
-                'while (true) { learn(); grow(); }'
-            ];
-            
-            const randomSnippet = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-            codeLine.textContent = randomSnippet;
-            
-            const posY = Math.random() * 100;
-            const delay = Math.random() * 20;
-            
-            codeLine.style.top = `${posY}%`;
-            codeLine.style.animationDelay = `${delay}s`;
-            
-            particlesContainer.appendChild(codeLine);
-        }
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        });
-
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe timeline items
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(item);
-        });
-
-        // Observe project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(card);
-        });
-
-        // Observe skill items
-        document.querySelectorAll('.skill-item').forEach(skill => {
-            skill.style.opacity = '0';
-            skill.style.transform = 'translateY(20px)';
-            skill.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(skill);
-        });
-    </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
